@@ -1,0 +1,384 @@
+// ==========================================================================
+
+// Globals
+
+// ==========================================================================
+  
+
+
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $bodyBase;
+}
+
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+
+// ==== Wrap
+
+.wrap-center {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+// ==== Wrap !
+
+
+
+
+
+
+.small-pad-20 {
+	padding: 20px;
+}
+
+
+
+
+// ==== Obj 
+
+// sprite
+
+// Backgrounds
+.bg-blue {
+	background-color: $gBlue;
+	background-image: -moz-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
+	background-image: -webkit-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
+	background-image: -ms-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
+}
+
+.bg-blue * {
+	color: #fff;	
+}
+
+
+
+
+.bg-white {
+	background-color: $wht;
+}
+
+.bg-white * {
+	color: $gTxt;	
+}
+
+
+
+
+
+.bg-green {
+	background-color: $gGreen;
+}
+
+.bg-purp {
+	background-color: $gPurp;
+}
+
+.bg-black {
+	background-color: $gBlack;
+}
+
+
+.bg-white{
+	background-color: $wht;
+}
+
+
+
+
+
+// ==== Helpers
+
+// hide text
+.txt-hide {
+	display: block;
+	overflow: hidden;
+	text-indent: -999999999%;
+}
+
+
+
+
+
+// sudo obj
+.sudo {
+  position: relative;
+}
+
+// sudo obj here
+.sudo::before,
+.sudo::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+// testing sudos
+.sudo-border {
+  @extend .sudo;
+}
+
+// testing sudos
+.sudo-border::after {
+  background: red;
+  height: 1px;
+  bottom: 0px;
+  left: 50%;
+}
+
+.icon {
+	display: block;
+	overflow: hidden;
+	text-indent: -999999px;
+	width: 50px;
+	height: 50px;
+	background-color: green;
+}
+
+// ==== Helpers !
+
+
+
+
+
+
+
+
+
+
+.sprite {
+	background: transparent url('img/svg-sprite.svg') no-repeat 0px 0px;
+	background-size: 194px 67px;
+}
+
+
+
+
+
+
+
+.dis-b {
+	display: block;
+}
+
+
+
+
+.fl-left {
+	float: left;
+}
+
+.fl-right {
+	float: right;
+}
+
+
+
+// ==== Obj !
+
+
+
+
+// ==========================================================================
+
+// Global Elements
+
+// ==========================================================================
+  
+
+// global logo obj
+.g-logo   {
+	width: 48px;
+	height: 100px;
+}
+
+
+// ==== Header
+
+// global header el
+.g-header {
+	position: relative;
+	height: 88px;
+
+	.g-logo {
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		margin-left: -24px;
+	}
+}
+
+
+.g-phone {
+	width: 50px;
+	height: 50px;
+	background-color: green;
+}
+
+
+.nav-trig {
+	height: 35px;
+	width: 35px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+
+	span,
+	span::before,
+	span::after {
+		overflow: visible;
+  		display: block;
+  		position: absolute;
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		left: 0;
+		background-color: $wht;
+	}
+
+	span::before,
+	span::after {
+		content: "";
+		position: absolute !important;
+		background-color: $wht;
+	}
+
+	span {
+		top: 50%;
+	}
+
+	span::before {
+		top: 8px;
+	}
+
+	span::after {
+		top: -8px;
+	}
+
+
+}
+
+
+
+.g-header-wrap-right {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: red;
+	width: 100px;
+
+
+	.icon {
+		float: left;
+		display: block;
+	}
+
+}
+
+// ==== Header !
+
+
+
+// ==== Header
+
+.g-footer {
+	background-color:  $gBlack;
+
+	a {
+		color: #fff;
+	}
+}
+
+// ==== Header !
+
+
+
+
+// ==== Heros
+
+.hero {
+	background-color: $gBlue;
+	padding: 50px 15px;
+}
+
+// ==== Heros !
+
+
+// ==== Heros
+
+.hero-pop-over {
+	margin-top: -40px;
+}
+
+// ==== Heros !
+
+
+
+
+.non-mobile {
+	display: none !important;
+}
+
+
+
+
+
+
+
+// ==========================================================================
+
+// Type
+
+// ==========================================================================
+
+
+
+
+
+
+/* 
+    font-family: 'open_sanslight';
+    font-family: 'open_sansregular';
+    font-family: 'open_sanssemibold';
+*/
+
+
+// ==========================================================================
+
+// Footer
+
+// ==========================================================================
+
+footer{
+	background: $gBlack;
+		h1 {
+			color: white;
+			@include font-size(18);
+		}
+		a {
+			color: $footerText;
+			@include font-size(12);
+			text-decoration: none;
+		}
+		a:hover {
+			color: white;
+		}
+		.copyright {
+			text-align: center;
+			color: #2b3134;
+			@include font-size(10);
+		}
+
+}
