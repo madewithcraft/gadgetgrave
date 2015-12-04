@@ -4,13 +4,19 @@
 
 // ==========================================================================
   
-
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: $bodyBase;
+	overflow-x: hidden;
 }
 
 
@@ -22,15 +28,25 @@ a {
 
 ol, ul {
 	list-style: none;
+	display: block;
 }
 
 
 // ==== Wrap
 
+
 .wrap-center {
 	width: 100%;
 	max-width: 1140px;
 	margin: 0 auto;
+	overflow: hidden;
+}
+
+.wrap {
+	float: left;
+	display: block;
+	overflow: hidden !important;
+	width: 100%;
 }
 
 // ==== Wrap !
@@ -52,31 +68,17 @@ ol, ul {
 // sprite
 
 // Backgrounds
-.bg-blue {
-	background-color: $gBlue;
-	background-image: -moz-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
-	background-image: -webkit-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
-	background-image: -ms-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
-}
-
-.bg-blue * {
-	color: #fff;	
-}
-
-
 
 
 .bg-white {
 	background-color: $wht;
 }
 
-.bg-white * {
-	color: $gTxt;	
+.bg-white .btn {
+	color: #fff;
+	border: none;
+	background-color: $gBlue;
 }
-
-
-
-
 
 .bg-green {
 	background-color: $gGreen;
@@ -90,10 +92,35 @@ ol, ul {
 	background-color: $gBlack;
 }
 
-
-.bg-white{
-	background-color: $wht;
+.bg-blue {
+	background-color: $gBlue;
+	background-image: -moz-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
+	background-image: -webkit-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
+	background-image: -ms-linear-gradient( 124deg, rgb(36,175,219) 0%, rgb(26,156,205) 100%);
 }
+
+.bg-blue *,
+.bg-black *,
+.bg-purp *,
+.bg-green, {
+	color: #fff;	
+}
+
+
+.bg-white * {
+	color: $gTxt;	
+}
+
+
+
+
+
+.slab {
+
+}
+
+
+
 
 
 
@@ -140,31 +167,16 @@ ol, ul {
 
 // testing sudos
 .sudo-border::after {
-  background: red;
   height: 1px;
   bottom: 0px;
   left: 50%;
 }
 
-.icon {
-	display: block;
-	overflow: hidden;
-	text-indent: -999999px;
-	width: 50px;
-	height: 50px;
-	background-color: green;
-}
-
-// ==== Helpers !
 
 
 
 
-
-
-
-
-
+//--- svg sprite
 
 .sprite {
 	background: transparent url('img/svg-sprite.svg') no-repeat 0px 0px;
@@ -173,6 +185,49 @@ ol, ul {
 
 
 
+//--- icons
+
+.icon {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	text-indent: -999999px;
+	width: 50px;
+	height: 50px;
+}
+
+.icon::before {
+	content: "";
+	@extend .sprite;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0px 0px -10px;
+}
+
+
+// actual icons
+.icon-mag::before {
+	background-position: -53px -9px;
+}
+
+.icon-shop::before {
+	background-position: -53px -9px;
+}
+
+.icon-phones::before {
+	background-position: -73px -9px;
+}
+
+.icon-facebook::before  {
+	background-position: -47px -27px;
+}
+
+.icon-facebook:hover::before {
+	background-position: -47px -45px;
+}  
 
 
 
@@ -180,6 +235,7 @@ ol, ul {
 .dis-b {
 	display: block;
 }
+
 
 
 
@@ -207,10 +263,12 @@ ol, ul {
   
 
 // global logo obj
-.g-logo   {
+.g-logo {
 	width: 48px;
 	height: 100px;
 }
+
+
 
 
 // ==== Header
@@ -232,7 +290,6 @@ ol, ul {
 .g-phone {
 	width: 50px;
 	height: 50px;
-	background-color: green;
 }
 
 
@@ -278,13 +335,10 @@ ol, ul {
 
 }
 
-
-
 .g-header-wrap-right {
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	background-color: red;
 	width: 100px;
 
 
@@ -296,6 +350,7 @@ ol, ul {
 }
 
 // ==== Header !
+
 
 
 
@@ -324,11 +379,21 @@ ol, ul {
 // ==== Heros !
 
 
+
+
 // ==== Heros
 
 .hero-pop-over {
 	margin-top: -40px;
+	padding: 30px 30px;
+	overflow: hidden;
 }
+
+.shadow {
+	@include border-radius(2px);
+	box-shadow: 0px 1px 0px 0px rgba(237, 237, 243, 0.6);
+}
+
 
 // ==== Heros !
 
@@ -344,6 +409,92 @@ ol, ul {
 
 
 
+// ==========================================================================
+
+// Buttons
+
+// ==========================================================================
+/* General button style (reset) */
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 10px 30px;
+	display: inline-block;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	@include font-size (14);
+}
+
+// outline btn
+.btn-outline {
+	@include border-radius(50px);
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	color: #fff;
+	overflow: hidden;
+}
+
+
+// ==========================================================================
+
+// Buttons
+
+// ==========================================================================
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 2rem;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+  }
+}
+
+
+h1 {
+	@include font-size(35);
+}
+
+h2 {
+	@include font-size(25);
+}
+
+h3 {
+	@include font-size(20);
+}
+
+
+p {
+	@include font-size(13);
+	font-family: 'open_sansregular';
+}
+
+ul.small ,
+ul.small li,
+ul.small a {
+	@include font-size(13);
+	font-family: 'open_sansregular';
+}
+
+
+
+
+
+.brands-we-support ul {
+	width: 33.3333333%;
+	float: left;
+}
+
+
+
 
 // ==========================================================================
 
@@ -351,6 +502,37 @@ ol, ul {
 
 // ==========================================================================
 
+
+
+.half-full-section {
+	position: relative;
+}
+
+.half-full-section .bg-purp {
+	position: relative;
+	z-index: 1;
+}
+
+
+.half-full-section .bg-purp.bg-half {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	top: 0px;
+	right: 0px;
+	z-index: 0;
+}
+
+
+
+.wrap-featured-products .wrap {
+	padding: 0 0 20px;
+}
+
+.wrap-featured-products .three {
+	@extend .shadow;
+	background-color: #fff;
+}
 
 
 
@@ -369,7 +551,7 @@ ol, ul {
 
 // ==========================================================================
 
-footer{
+footer {
 	background: $gBlack;
 	padding-top: 30px;
 		ul.fl-left li {
