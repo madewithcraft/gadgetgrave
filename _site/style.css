@@ -587,7 +587,8 @@ there.
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f9f9fb; }
+  background-color: #f9f9fb;
+  overflow-x: hidden; }
 
 a {
   text-decoration: none;
@@ -666,8 +667,7 @@ ol, ul {
   overflow: hidden;
   text-indent: -999999px;
   width: 50px;
-  height: 50px;
-  background-color: red; }
+  height: 50px; }
 
 .icon::before {
   content: "";
@@ -676,8 +676,7 @@ ol, ul {
   left: 50%;
   width: 20px;
   height: 20px;
-  margin: -10px 0px 0px -10px;
-  background-color: rgba(255, 255, 255, 0.6); }
+  margin: -10px 0px 0px -10px; }
 
 .icon-mag::before {
   background-position: -53px -9px; }
@@ -840,6 +839,16 @@ p {
   font-size: 13px;
   font-size: 1.3rem;
   font-family: 'open_sansregular'; }
+
+ul.small,
+ul.small li,
+ul.small a {
+  font-size: 13px;
+  font-size: 1.3rem;
+  font-family: 'open_sansregular'; }
+
+.wrap-featured-products .three {
+  background-color: #fff; }
 
 /* 
     font-family: 'open_sanslight';
