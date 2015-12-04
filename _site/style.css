@@ -751,7 +751,19 @@ ol, ul {
     font-family: 'open_sanssemibold';
 */
 footer {
-  background: #161e22; }
+  background: #161e22;
+  padding-top: 30px; }
+  footer ul.fl-left li {
+    float: left;
+    display: inline-block;
+    padding: 20px;
+    font-size: 15px;
+    font-size: 1.5rem;
+    color: white; }
+    footer ul.fl-left li a {
+      color: white;
+      font-size: 15px;
+      font-size: 1.5rem; }
   footer h1 {
     color: white;
     font-size: 18px;

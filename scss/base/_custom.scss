@@ -363,6 +363,19 @@ ol, ul {
 
 footer{
 	background: $gBlack;
+	padding-top: 30px;
+		ul.fl-left li {
+	    	float: left;
+	    	display: inline-block;
+        	padding: 20px;
+        	@include font-size(15);
+        	color: white;
+
+        	a {
+        	color: white;
+        	@include font-size(15);
+        	}
+		}
 		h1 {
 			color: white;
 			@include font-size(18);
