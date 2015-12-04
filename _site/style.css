@@ -646,6 +646,13 @@ ol, ul {
   display: block;
   position: absolute; }
 
+.after-line::after {
+  height: 1px;
+  background: #FFF;
+  bottom: 35px;
+  width: 100%;
+  opacity: 0.05; }
+
 .sudo-border::after {
   background: red;
   height: 1px;
