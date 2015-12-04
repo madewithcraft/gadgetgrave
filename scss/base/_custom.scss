@@ -124,6 +124,14 @@ ol, ul {
   display: block;
   position: absolute;
 }
+// after line
+.after-line::after {
+    height: 1px;
+    background: #FFF;
+    bottom: 35px;
+    width: 100%;
+    opacity: 0.05;
+}
 
 // testing sudos
 .sudo-border {
@@ -363,6 +371,19 @@ ol, ul {
 
 footer{
 	background: $gBlack;
+	padding-top: 30px;
+		ul.fl-left li {
+	    	float: left;
+	    	display: inline-block;
+        	padding: 20px;
+        	@include font-size(15);
+        	color: white;
+
+        	a {
+        	color: white;
+        	@include font-size(15);
+        	}
+		}
 		h1 {
 			color: white;
 			@include font-size(18);
