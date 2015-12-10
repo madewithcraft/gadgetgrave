@@ -3,7 +3,7 @@
 // ==========================================================================
 // Font sizes (primary sizing in `rem` units with a fallback of `px`)
 // Example usage .font-size(18);
-@mixin font-size ($size) {
+@mixin font-size($size) {
   $remValue: $size / 10;
   $pxValue: ($size);
   font-size: $pxValue + px; 
@@ -11,10 +11,18 @@
 }
 
 
+// this create the buttons styles that are custom to each class
+// example .btn--green styleBtn(#fff, solid 3px red, #bada55)
+@mixin styleBtn($color, $border, $bg) {
+  color: $color;
+  border: $border;
+  background-color: $bg;
+}
+
 
 // Line height sizes (primary sizing in `rem` units with a fallback of `px`)
 // Example usage .line-height(22);
-@mixin line-height ($size) {
+@mixin line-height($size) {
   $remValue: $size / 16;
   $pxValue: ($size);
   line-height: $pxValue + px; 
