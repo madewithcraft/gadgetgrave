@@ -4,7 +4,9 @@ $(document).ready(function() {
 	var navTrig = $('#mobileNavTrig'); // mobile trig
 
 	// open the mobile nav
-	navTrig.on('click', function(){
+	navTrig.on('click', function(e){
+
+		e.prventDefault();
 		
 		if ( navTrig.hasClass('open') ) {
 			// open the nav
@@ -13,7 +15,7 @@ $(document).ready(function() {
 
 		else if ( navTrig.hasClass('closed') ) {
 			// close the nav
-			closeNav()
+			closeNav();
 		}
 
 	});
